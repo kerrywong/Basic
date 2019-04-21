@@ -1,8 +1,8 @@
 # 转义字符
-'''
+
 print("I\'m OK \nCome on! Everything will be OK")
 print(r"I'm OK!!")# 转义多个字符
-'''
+
 
 # list（列表） 可以随便添加和删除
 # list元素可以也是list
