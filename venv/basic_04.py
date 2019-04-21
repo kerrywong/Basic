@@ -23,7 +23,6 @@ def count():
     for x in range(1, 5):
         def f():
             return x * x
-
         fs.append(f)
     return fs
 
@@ -41,7 +40,6 @@ def count2():
     def g(x):
         def f():
             return x * x
-
         return f
 
     l = []
@@ -75,8 +73,6 @@ f()
 print(f.__name__)  # 获取函数名
 
 import functools
-
-
 def log(func):
     def wrapper(*args, **message):
         print("call %s()" % func.__name__)
@@ -85,7 +81,7 @@ def log(func):
     return wrapper;
 
 
-@log  # 装饰器  新的函数同名函数 不影响以前的函数
+@log  # 装饰器  调用一次新的函数同名函数就会执行log() 不影响以前的函数
 def now():
     print("hello world")
 
@@ -102,7 +98,6 @@ def int2(x, base=2):  # 自定义转化二进制
 
 
 print(int2('1010010'))
-
 int3 = functools.partial(int, base=2)  # 内置的偏函数
 int4 = functools.partial(max, 10)  # 将10 自动添加到max函数参数的左边
 print(int4(1, 2, 9))
