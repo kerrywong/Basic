@@ -53,3 +53,52 @@ print(next(t))
 print(next(t))
 
 
+# 函数名本身可以作为参数
+def fun(a,b,f):
+    return f(a)+f(b)
+def mul(a):
+    return a*a
+print(fun(1,2,mul))
+# 变量可以指向函数
+f=abs
+print(f(-9))
+
+
+# map() 两个参数（一个是函数，另一个Inteable），返回是一个Iterator
+l=[1,2,3,4,5,6,7]
+def f(x):
+    return x*x
+print(map(f,l)) # 使用自定义函数
+print(list(map(f,l))) # 将generator转化为list
+
+print(list(map(str,[1,2,3,4]))) # 使用已带的函数
+
+# reduce 相当于前一次的结果作为后一次的第一个参数 作用对象是list
+from functools import reduce
+def add(x,y):
+    return x*10+y
+print(reduce(add,[1,2,3,4,5,6]))
+
+
+# filter filter()把传入的函数依次作用于每个元素，然后根据返回值是True还是False决定保留还是丢弃该元素。
+# 返回值是Iterator
+def not_empty(s):
+    return s and s.strip();
+print(list(filter( not_empty,[' ','a','b',' ','c'])))
+
+
+# sorted() 排序
+list_sort=[1,2,4,6,3,-4,5]
+print(sorted(list_sort))
+print(sorted(list_sort,key=abs)) #按照绝对值 key是可以指定的函数
+list_sort2=["asdf","Abahs","cdiegh","dfgg"]
+print(sorted(list_sort2)) # 字符按照ASCII大小进行比较
+print(sorted(list_sort2,key=str.upper)) # 全部转化为大写字母排序
+
+
+
+
+
+
+
+
