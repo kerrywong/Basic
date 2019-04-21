@@ -41,7 +41,7 @@ else:
 
 
 # for x in list/tuple
-l=list(range(8)) # range(x) 随机生成0~x（不包括）的整数x
+l=list(range(8)) # range(x) 随机生成0~x（不包括x）的整数x
 sum = 0;
 for x in l:
     sum += x;
